@@ -1,0 +1,12 @@
+{
+  "name": "macwk-request",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "npx http-server ."
+  },
+  "devDependencies": {
+    "http-server": "^13.0.2"
+  }
+}

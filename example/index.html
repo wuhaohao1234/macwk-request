@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+    }
+    a{
+      display: inline-block;
+      width: 100%;
+      margin: 20px;
+      font-size: 20px;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.308);
+      padding: 5px;
+    }
+    h1{
+      text-align: center;
+    }
+    .container {
+      margin: 50px auto;
+      width: 1000px;
+    }
+    .desc {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>mac 破解软件分享</h1>
+  <div id="root">
+
+  </div>
+  </div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $.get('http://localhost:8080/text.json', (data, status) => {
+      const result = data.data
+      $('#root').html(`<ul>${result.map(item => (`
+        <li>
+          <a href=${'https://macwk.com/soft/' + item.slug} target="_blank" >`
+             + `<img class="w-56 h-56 delay-1" src="https://cdn.macwk.com/public/uploads/_/originals/${item.icon.filename_disk}" lazy="loaded">` + item.slug + 
+          '</a>'+ `
+          <div class="desc" >${item.description}</div>
+          ` +'</li>')).join('')}</ul>`)
+    })
+  </script>
+</body>
+</html>
